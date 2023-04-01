@@ -6,8 +6,26 @@ using System.Threading.Tasks;
 
 namespace SkillFactory.Delivery_system
 {
-    class Product
+    public class Product
     {
+        private static int _count = 0;
+        public int Id;
+        
+        public string Name { get; private set; }
+        public int Quantity { get; private set; }
+        public bool IsReturned { get; set; }
 
+        public Product(string name, int quantity = 1)
+        {
+            Id = ++_count;
+            Name = name;
+            Quantity = quantity;
+            IsReturned = false;
+        }
+
+        public override string ToString()
+        {
+            return $"Id{Id}_{Name}x{Quantity}{( IsReturned ? "_Returned" : String.Empty )}";
+        }
     }
 }
