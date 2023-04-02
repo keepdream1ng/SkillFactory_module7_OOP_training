@@ -9,7 +9,7 @@ namespace SkillFactory.Delivery_system
     public class Product
     {
         private static int _count = 0;
-        public int Id;
+        public int Id { get; }
         
         public string Name { get; private set; }
         public int Quantity { get; private set; }

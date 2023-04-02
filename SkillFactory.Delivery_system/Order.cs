@@ -31,5 +31,10 @@ namespace SkillFactory.Delivery_system
         {
             Console.WriteLine(Delivery.Address);
         }
+
+        public override string ToString()
+        {
+            return $"Order {Number} from {Owner.ToString} delivery adress {Delivery.Address}.";
+        }
     }
 }
