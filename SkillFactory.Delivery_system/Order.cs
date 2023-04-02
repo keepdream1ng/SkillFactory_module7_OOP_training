@@ -23,8 +23,9 @@ namespace SkillFactory.Delivery_system
             Status = Status.Pending;
             Owner = owner;
             OrderPackage = orderPackage;
+            // I couldnt find at a glance option to include different Delivery objects inside the constructor,  
+            // so the Delivery field will be added to the object in CreateOrder() method.
         }
-
 
         public void DisplayAddress()
         {
