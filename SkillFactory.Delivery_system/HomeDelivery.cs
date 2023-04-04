@@ -8,6 +8,9 @@ namespace SkillFactory.Delivery_system
 {
     public class HomeDelivery : Delivery
     {
-        /* ... */
+        public HomeDelivery(string adress) : base(adress)
+        {
+        }
     }
+
 }

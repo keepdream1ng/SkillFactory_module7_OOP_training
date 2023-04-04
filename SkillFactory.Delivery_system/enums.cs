@@ -9,7 +9,7 @@ namespace SkillFactory.Delivery_system
     public enum DeliveryType
     {
         HomeDelivery = 0,
-        PickUpDelivery,
+        PickPointDelivery,
         ShopDelivery
     }
 

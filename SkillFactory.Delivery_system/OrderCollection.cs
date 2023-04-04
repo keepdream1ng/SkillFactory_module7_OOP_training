@@ -42,26 +42,36 @@ namespace SkillFactory.Delivery_system
             }
         }
 
-        public Order<Delivery> this[string name]
-        {
-            get
-            {
-                foreach (Order<Delivery> o in OrderArchive)
-                {
-                    if ( o.Owner.Name == name )
-                    {
-                        return o;
-                    }
-                }
-                return null;
-            }
-        }
-
         public Order<Delivery> GiveOrder() 
         {
             return OrderCollection.One.OrderQueue.Dequeue();
         }
+        
+        /// <summary>
+        /// Method returns order status by taking its number.
+        /// </summary>
+        public string TrackOrder( int number )
+        {
+            return OrderCollection.One[number].ToString();
+        }
 
-
+        /// <summary>
+        /// Method returns orders status by taking their owner's name.
+        /// </summary>
+        public string TrackOrder( string name )
+        {
+            int i = 0;
+            string result = string.Empty;
+            foreach ( Order<Delivery> o in OrderCollection.One.OrderArchive )
+            {
+                if ( o.Owner.Name == name )
+                {
+                    if (i != 0) result += "\n";
+                    i++;
+                    result += o.ToString();
+                }
+            }
+            return result;
+        }
     }
 }
