@@ -13,7 +13,15 @@ namespace SkillFactory.Delivery_system
         ShopDelivery
     }
 
-    public enum Status
+    public enum UnitStatus
+    {
+        Off = 0,
+        Waiting,
+        Delivering,
+        Returning
+    }
+
+    public enum OrderStatus
     {
         Cancelled = 0,
         Pending,

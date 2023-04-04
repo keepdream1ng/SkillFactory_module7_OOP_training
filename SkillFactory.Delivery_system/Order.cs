@@ -11,22 +11,19 @@ namespace SkillFactory.Delivery_system
         private static int _count = 0;
         public int Number { get; private set; }
         public string Description { get => this.ToString(); }
-        public Status Status;
+        public OrderStatus Status;
 
         public Client Owner;
         public TDelivery Delivery;
         public Product[] OrderPackage;
 
-        public Order(Client owner, Product[] orderPackage)
+        public Order(Client owner, Product[] orderPackage, TDelivery delivery)
         {
             Number = ++_count;
-            Status = Status.Pending;
+            Status = OrderStatus.Pending;
             Owner = owner;
+            Delivery = delivery;
             OrderPackage = orderPackage;
-            // I couldnt find at a glance option to include different Delivery objects inside the constructor,  
-            // so the Delivery field will be added to the object in CreateOrder() method.
-            OrderCollection.One.OrderQueue.Enqueue(this);
-            OrderCollection.One.OrderOrderArchive.Add(this);
         }
 
         public void DisplayAddress()
