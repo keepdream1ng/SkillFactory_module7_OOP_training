@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SkillFactory.Delivery_system
 {
-    abstract class Delivery
+    public abstract class Delivery
     {
         public string Address;
     }

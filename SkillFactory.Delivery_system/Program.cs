@@ -15,7 +15,11 @@ namespace SkillFactory.Delivery_system
             var Prod2 = new Product("prod2");
             Product[] products = new Product[] { Prod1, Prod2 };
             var MyOrder = new Order<HomeDelivery>(new Client(), products);
-            MyOrder.Delivery = new HomeDelivery(); 
+            MyOrder.Delivery = new HomeDelivery();
+            var collection = new OrderCollection();
+            collection.OrderQueue.Enqueue(MyOrder);
+            collection.OrderQueue.Dequeue();
+
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SkillFactory.Delivery_system
 {
-    class Order<TDelivery> where TDelivery : Delivery
+    public class Order<TDelivery> where TDelivery : Delivery
     {
         private static int _count = 0;
         public int Number { get; private set; }
@@ -25,6 +25,8 @@ namespace SkillFactory.Delivery_system
             OrderPackage = orderPackage;
             // I couldnt find at a glance option to include different Delivery objects inside the constructor,  
             // so the Delivery field will be added to the object in CreateOrder() method.
+            OrderCollection.One.OrderQueue.Enqueue(this);
+            OrderCollection.One.OrderOrderArchive.Add(this);
         }
 
         public void DisplayAddress()
@@ -34,7 +36,7 @@ namespace SkillFactory.Delivery_system
 
         public override string ToString()
         {
-            return $"Order {Number} from {Owner.ToString} delivery adress {Delivery.Address}.";
+            return $"Order {Status} #{Number} from {Owner.ToString} delivery adress {Delivery.Address}.";
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SkillFactory.Delivery_system
 {
-    class HomeDelivery : Delivery
+    public class HomeDelivery : Delivery
     {
         /* ... */
     }
