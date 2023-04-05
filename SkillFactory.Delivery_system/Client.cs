@@ -8,7 +8,6 @@ namespace SkillFactory.Delivery_system
 {
     public class Client : Contributor
     {
-        private List<Order<Delivery>> MyOrders = new List<Order<Delivery>>();
         private string ClosestPickpoint { get; set; }
         private string ClosestShop { get; set; }
 
