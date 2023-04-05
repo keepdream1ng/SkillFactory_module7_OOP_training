@@ -8,5 +8,10 @@ namespace SkillFactory.Delivery_system
 {
     public class Сourier : DeliveryConractor
     {
+        public void TakeDelivery(string adress)
+        {
+            Orders.Add(Warehouse.First.ShipOrder(adress));
+            Status = UnitStatus.Delivering;
+        }
     }
 }
