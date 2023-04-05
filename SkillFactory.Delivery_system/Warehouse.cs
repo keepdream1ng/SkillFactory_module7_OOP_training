@@ -64,5 +64,30 @@ namespace SkillFactory.Delivery_system
                 order.Status = OrderStatus.Awaiting;
             }
         }
+
+        public Order<Delivery> ShipOrder(string adress)
+        {
+            Order<Delivery> order = Warehouse.First[adress];
+            if ((order != null) && (order.Status != OrderStatus.Cancelled))
+            {
+                this.Status = WarehouseStatus.Unloading;
+                order.Status = OrderStatus.Shipment;
+                ReadyToShip.Remove(order);
+                Thread.Sleep (Estimations.Time(order.ToString()));
+                this.Status = WarehouseStatus.Waiting;
+                return order;
+            }
+            return null;
+        }
+
+        public List<Order<Delivery>> ShipMultibleOrders(string adress)
+        {
+            var ordersList = new List<Order<Delivery>>();
+            while (Warehouse.First[adress] != null)
+            {
+                ordersList.Add(ShipOrder(adress));
+            }
+            return ordersList;
+        }
     }
 }
