@@ -30,4 +30,12 @@ namespace SkillFactory.Delivery_system
         Awaiting,
         Delivered
     }
+
+    public enum WarehouseStatus
+    {
+        Off,
+        Collecting,
+        Unloading,
+        Waiting
+    }
 }

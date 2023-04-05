@@ -35,9 +35,18 @@ namespace SkillFactory.Delivery_system
             }
 
             var NewOrder = new Order<Delivery>(this, package, pickedDelivery);
-            MyOrders.Add(NewOrder);
             OrderCollection.One.OrderQueue.Enqueue(NewOrder);
             OrderCollection.One.OrderArchive.Add(NewOrder);
-        } 
+        }
+
+        private void CancelOrder(int number)
+        {
+            OrderCollection.One[number].Status = OrderStatus.Cancelled;
+        }
+
+        private void CheckOrders()
+        {
+            Console.WriteLine(OrderCollection.One.TrackOrder(Name));
+        }
     }
 }
