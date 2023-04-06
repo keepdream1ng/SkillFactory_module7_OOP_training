@@ -9,5 +9,10 @@ namespace SkillFactory.Delivery_system
     public class Shop : DeliveryPoint 
     {
         public List<Product> ReturnedProducts = new List<Product>();
+
+        public override string ToString()
+        {
+            return $"Shop {Name} with an address {Adress}";
+        }
     }
 }

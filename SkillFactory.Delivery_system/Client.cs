@@ -49,5 +49,10 @@ namespace SkillFactory.Delivery_system
         {
             Console.WriteLine(OrderCollection.One.TrackOrder(Name));
         }
+
+        public override string ToString()
+        {
+            return $"Client with an ID#{Id}";
+        }
     }
 }

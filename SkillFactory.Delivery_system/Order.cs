@@ -33,7 +33,7 @@ namespace SkillFactory.Delivery_system
 
         public override string ToString()
         {
-            return $"Order {Status} #{Number} from {Owner.ToString} delivery adress {Delivery.Address}.";
+            return $"Order #{Number} from {Owner.ToString} delivery adress {Delivery.Address} is {Status}.";
         }
     }
 }
