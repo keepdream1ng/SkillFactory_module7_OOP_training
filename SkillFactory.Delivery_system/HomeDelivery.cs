@@ -15,21 +15,7 @@ namespace SkillFactory.Delivery_system
             {
                 if (_pickedCourier == null)
                 {
-                    _pickedCourier = PickContractor<Courier>(UnitStatus.Waiting);
-                    // If there is no waiting Courier it will pick returning one and so on.
-                    if (_pickedCourier == null)
-                    {
-                        _pickedCourier = PickContractor<Courier>(UnitStatus.Returning);
-                    }
-                    if (_pickedCourier == null)
-                    {
-                        _pickedCourier = PickContractor<Courier>(UnitStatus.Delivering);
-                    }
-                    if (_pickedCourier == null)
-                    {
-                        _pickedCourier = PickContractor<Courier>(UnitStatus.Off);
-                    }
-                    return _pickedCourier;
+                    return _pickedCourier = PickAvailable<Courier>();
                 }
                 return _pickedCourier;
             }
