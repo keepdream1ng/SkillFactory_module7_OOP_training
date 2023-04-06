@@ -23,6 +23,10 @@ namespace SkillFactory.Delivery_system
                     {
                         order.Status = OrderStatus.Delivered;
                     }
+                    else
+                    {
+                        order.Status = OrderStatus.Awaiting;
+                    }
                     this.Orders.Remove(order);
                 }
             }

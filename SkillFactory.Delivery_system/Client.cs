@@ -11,6 +11,8 @@ namespace SkillFactory.Delivery_system
         private string ClosestPickpoint { get; set; }
         private string ClosestShop { get; set; }
 
+        public List<string> Messages = new List<string>();
+
         public void CreateOrder(Product[] package, DeliveryType delivery = DeliveryType.HomeDelivery)
         {
             Delivery pickedDelivery = null;

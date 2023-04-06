@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SkillFactory.Delivery_system
 {
-    public class Shop : Contributor
+    public class Shop : DeliveryPoint 
     {
     }
 }

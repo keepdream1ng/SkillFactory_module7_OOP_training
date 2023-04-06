@@ -8,5 +8,10 @@ namespace SkillFactory.Delivery_system
 {
     public class ShippingUnit : DeliveryConractor
     {
+        public void StartShipment(string adress)
+        {
+            Orders.Concat(Warehouse.First.ShipMultibleOrders(adress));
+            Status = UnitStatus.Delivering;
+        }
     }
 }
