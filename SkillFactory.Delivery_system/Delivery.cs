@@ -14,5 +14,23 @@ namespace SkillFactory.Delivery_system
         {
             Address = address;
         }
+
+        public abstract void StartDelivery();
+
+        public TContractor PickContractor<TContractor>(UnitStatus status) where TContractor : DeliveryConractor
+        {
+            foreach (Contributor contributor in WorldMap.One.contributors)
+            {
+                if (contributor.GetType() == typeof(TContractor))
+                {
+                    var courier = (TContractor)contributor;
+                    if (courier.Status == status)
+                    {
+                        return courier;
+                    }
+                }
+            }
+            return null;
+        }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SkillFactory.Delivery_system
 {
-    public class Сourier : DeliveryConractor
+    public class Courier : DeliveryConractor
     {
         public void TakeDelivery(string adress)
         {
