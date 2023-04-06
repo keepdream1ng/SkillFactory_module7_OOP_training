@@ -8,5 +8,6 @@ namespace SkillFactory.Delivery_system
 {
     public class Shop : DeliveryPoint 
     {
+        public List<Product> ReturnedProducts = new List<Product>();
     }
 }
