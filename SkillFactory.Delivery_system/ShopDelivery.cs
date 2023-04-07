@@ -15,7 +15,11 @@ namespace SkillFactory.Delivery_system
         public override void StartDelivery()
         {
             List<Order<Delivery>> delivery = Warehouse.First.ShipMultibleOrders(Address);
-            WorldMap.One[Address].Orders.Concat(delivery);
+            WorldMap.One[Address].Orders.AddRange(delivery);
+            foreach (Order<Delivery> order in delivery)
+            {
+                order.Status = OrderStatus.Delivered;
+            }
         }
 
         public override string ToString()

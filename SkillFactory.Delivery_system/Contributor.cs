@@ -9,18 +9,18 @@ namespace SkillFactory.Delivery_system
     public class Contributor
     {
         private int _count;
-        public int Id { get; private set; }
-        public string Name { get; private set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
 
-        public string Adress { get; private set; }
+        public string Adress { get; set; }
 
-        protected string ContactInfo { get; private set; }
+        protected string ContactInfo { get; set; }
 
         public List<Order<Delivery>> Orders = new List<Order<Delivery>>();
         
         public override string ToString()
         {
-            return $"{Name} Contact: {ContactInfo}";
+            return $"{this.GetType().Name} {Name}";
         }
     }
 }

@@ -8,8 +8,8 @@ namespace SkillFactory.Delivery_system
 {
     public class Client : Contributor
     {
-        private string ClosestPickpoint { get; set; }
-        private string ClosestShop { get; set; }
+        public string ClosestPickpoint { get; set; }
+        public string ClosestShop { get; set; }
 
         public List<string> Messages = new List<string>();
 
@@ -45,7 +45,7 @@ namespace SkillFactory.Delivery_system
             OrderCollection.One[number].Status = OrderStatus.Cancelled;
         }
 
-        private void CheckOrders()
+        public void CheckOrders()
         {
             Console.WriteLine(OrderCollection.One.TrackOrder(Name));
         }

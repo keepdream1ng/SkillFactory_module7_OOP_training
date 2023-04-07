@@ -10,7 +10,7 @@ namespace SkillFactory.Delivery_system
     {
         public void StartShipment(string adress)
         {
-            Orders.Concat(Warehouse.First.ShipMultibleOrders(adress));
+            Orders.AddRange(Warehouse.First.ShipMultibleOrders(adress));
             Status = UnitStatus.Delivering;
         }
     }

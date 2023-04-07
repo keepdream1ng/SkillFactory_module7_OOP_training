@@ -15,7 +15,7 @@ namespace SkillFactory.Delivery_system
             {
                 if (_pickedCourier == null)
                 {
-                    return _pickedCourier = PickAvailable<Courier>();
+                    _pickedCourier = PickAvailable<Courier>();
                 }
                 return _pickedCourier;
             }

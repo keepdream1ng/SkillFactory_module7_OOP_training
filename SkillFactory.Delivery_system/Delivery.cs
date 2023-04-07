@@ -38,7 +38,10 @@ namespace SkillFactory.Delivery_system
             TContractor contractor = null;
             contractor = PickContractor<TContractor>(UnitStatus.Waiting);
             // If there is no waiting Courier it will pick returning one and so on.
-            contractor = PickContractor<TContractor>(UnitStatus.Returning);
+            if (contractor == null)
+            {
+                contractor = PickContractor<TContractor>(UnitStatus.Returning);
+            }
             if (contractor == null)
             {
                 contractor = PickContractor<TContractor>(UnitStatus.Delivering);

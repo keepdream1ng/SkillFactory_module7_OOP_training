@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,7 +9,7 @@ namespace SkillFactory.Delivery_system
 {
     public abstract class DeliveryConractor : Contributor
     {
-        public UnitStatus Status { get; protected set; }
+        public UnitStatus Status { get; set; }
 
         public void DeliverPackage(string adress)
         {
@@ -18,22 +19,12 @@ namespace SkillFactory.Delivery_system
                 if (order.Status != OrderStatus.Cancelled)
                 {
                     Thread.Sleep(Estimations.Time(order.ToString()));
+                    order.Status = OrderStatus.Delivered;
                     WorldMap.One[adress].Orders.Add(order);
-                    if (order.Owner.Name == WorldMap.One[adress].Name)
-                    {
-                        order.Status = OrderStatus.Delivered;
-                    }
-                    else
-                    {
-                        order.Status = OrderStatus.Awaiting;
-                    }
-                    this.Orders.Remove(order);
                 }
             }
-            if (this.Orders.Count == 0)
-            {
-                Status = UnitStatus.Returning;
-            }
+            Orders.Clear();
+            Status = UnitStatus.Returning;
         }
     }
 }

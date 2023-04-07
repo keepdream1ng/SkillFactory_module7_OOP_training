@@ -8,8 +8,8 @@ namespace SkillFactory.Delivery_system
 {
     public class OrderCollection
     {
-        public Queue<Order<Delivery>> OrderQueue;
-        public List<Order<Delivery>> OrderArchive;
+        public Queue<Order<Delivery>> OrderQueue = new();
+        public List<Order<Delivery>> OrderArchive = new();
 
         private static OrderCollection _one;
         /// <summary>
